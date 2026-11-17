@@ -139,7 +139,7 @@ class _MxPlayerCloneAppState extends State<MxPlayerCloneApp> {
           fontWeight: FontWeight.w700,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: dark
             ? (amoled ? const Color(0xFF0A0A0A) : const Color(0xFF1B1E24))
             : Colors.white,

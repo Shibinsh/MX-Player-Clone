@@ -414,7 +414,7 @@ class _LocalScreenState extends State<LocalScreen> {
   }
 
   Future<void> _copyOrMoveSelected({required bool move}) async {
-    final target = await FilePicker.platform.getDirectoryPath();
+    final target = await FilePicker.getDirectoryPath();
     if (target == null) return;
     for (final path in _selected) {
       final type = FileSystemEntity.typeSync(path);
@@ -676,7 +676,7 @@ class _LocalScreenState extends State<LocalScreen> {
   }
 
   Future<void> _chooseSdCardRoot() async {
-    final selected = await FilePicker.platform.getDirectoryPath(
+    final selected = await FilePicker.getDirectoryPath(
       dialogTitle: 'Select SD Card root',
     );
     if (selected == null) {

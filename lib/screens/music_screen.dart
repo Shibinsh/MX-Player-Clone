@@ -254,7 +254,7 @@ class _MusicScreenState extends State<MusicScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _copyOrMoveSelected({required bool move}) async {
-    final target = await FilePicker.platform.getDirectoryPath();
+    final target = await FilePicker.getDirectoryPath();
     if (target == null) return;
     final selected = _selectedTracks();
     for (final track in selected) {

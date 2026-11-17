@@ -91,7 +91,7 @@ class TransferService extends ChangeNotifier {
       );
 
   Future<void> startSend() async {
-    final result = await FilePicker.platform.pickFiles(
+    final result = await FilePicker.pickFiles(
       allowMultiple: true,
       withData: false,
     );

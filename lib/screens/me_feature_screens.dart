@@ -340,7 +340,7 @@ class _PlaylistDetailScreenState extends State<PlaylistDetailScreen> {
   }
 
   Future<void> _addVideos() async {
-    final result = await FilePicker.platform.pickFiles(
+    final result = await FilePicker.pickFiles(
       allowMultiple: true,
       type: FileType.video,
     );
@@ -718,7 +718,7 @@ class CloudDriveScreen extends StatelessWidget {
     // Cloud apps (Drive/Dropbox/OneDrive) register as document providers, so
     // the Android Storage Access Framework picker can browse and pull files
     // straight from them without per-provider OAuth setup.
-    final result = await FilePicker.platform.pickFiles(allowMultiple: true);
+    final result = await FilePicker.pickFiles(allowMultiple: true);
     if (result == null || !context.mounted) return;
     final count = result.files.length;
     ScaffoldMessenger.of(context).showSnackBar(
@@ -794,7 +794,7 @@ class _ProviderTile extends StatelessWidget {
         title: Text(name),
         subtitle: const Text('Connect via system picker'),
         trailing: const Icon(Icons.chevron_right),
-        onTap: () => FilePicker.platform.pickFiles(allowMultiple: true),
+        onTap: () => FilePicker.pickFiles(allowMultiple: true),
       ),
     );
   }
@@ -1064,7 +1064,7 @@ class PopupPlayScreen extends StatelessWidget {
 
   Future<void> _playInMiniWindow(BuildContext context) async {
     final result =
-        await FilePicker.platform.pickFiles(type: FileType.video);
+        await FilePicker.pickFiles(type: FileType.video);
     final path = result?.files.single.path;
     if (path == null || !context.mounted) return;
     final video = VideoItem(
@@ -1349,7 +1349,7 @@ class _FileActionBrowserState extends State<_FileActionBrowser> {
   }
 
   Future<void> _import() async {
-    final result = await FilePicker.platform.pickFiles(allowMultiple: true);
+    final result = await FilePicker.pickFiles(allowMultiple: true);
     if (result == null) return;
     final dir = Directory(widget.roots.first);
     if (!await dir.exists()) await dir.create(recursive: true);
