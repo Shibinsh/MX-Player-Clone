@@ -24,6 +24,16 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Install Android SDK Platform 36
+        run: |
+          if [ -f "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
+            SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          else
+            SDKMANAGER="sdkmanager"
+          fi
+          yes | $SDKMANAGER --licenses > /dev/null 2>&1 || true
+          $SDKMANAGER "platforms;android-36" "build-tools;36.0.0"
+
       - name: Setup Flutter (Latest Stable)
         uses: subosito/flutter-action@v2
         with:
