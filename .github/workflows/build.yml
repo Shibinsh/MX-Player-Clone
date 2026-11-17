@@ -11,6 +11,8 @@ jobs:
   build:
     name: Build Android Release & Debug APK
     runs-on: ubuntu-latest
+    env:
+      _JAVA_OPTIONS: "-Xmx4g"
 
     steps:
       - name: Checkout Code
