@@ -1,11 +1,7 @@
 package com.example.mx_player_clone
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "transfer_history")
 data class TransferHistoryEntity(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val id: Long = 0,
     val fileName: String,
     val filePath: String,
     val fileSize: Long,
